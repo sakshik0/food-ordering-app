@@ -1,0 +1,64 @@
+.header{
+    display: flex;
+    border:1px solid black;
+    height:100px;
+    justify-content: space-between;
+}
+.logo{
+    width: 100px;
+}
+.nav-items >ul{
+  display: flex;
+  list-style-type: none;
+  font-size: 24px;
+}
+.nav-items >ul>li{
+    padding: 10px;
+    margin: 10px;
+}
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 140px;
+}
+.res-card{
+  margin: 30px;
+  padding:20px;
+  width: 300px;
+  background-color: rgb(201, 186, 186);
+}
+.search{
+  padding:10px;
+  margin: 10px;
+}
+.resImg{
+  width: 300px;
+}
+.res-card:hover{
+  cursor: pointer;
+  border:2px solid black;
+}
+
+.filter-btn{
+  margin: 10px;
+  cursor: pointer;
+}
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-card{
+   margin:20px;
+  width:200px;
+  height: 400px;
+  background-color: rgb(181, 177, 177);
+}
+.filter{
+  display: flex;
+  flex-wrap: wrap;
+}
+.login{
+  padding: 0 10px;
+  margin :10px;
+  cursor: pointer;
+}
