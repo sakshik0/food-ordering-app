@@ -20,7 +20,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9665806&lng=77.724865&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
-    const json = await data.json();
+    const json = await data.json;
     console.log(json);
     setlistofres(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -68,10 +68,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurants) => (
-          <RestaurantCard
-            key={restaurants?.data.id}
-            restaurants={restaurants}
-          />
+          <RestaurantCard key={restaurants?.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
