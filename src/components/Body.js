@@ -4,11 +4,11 @@ import reslist from "../utils/mockData";
 import Shimmer from "./Shimmer";
 
 const Body=()=>{
-  const [listofres,setlistofres] = useState(reslist);
+  const [listofres,setlistofres] = useState([]);
 
   const [searchtext,setsearchtext]=useState("");
 
-  const [filteredRestaurant,setfilteresRestaurant]=useState(reslist);
+  const [filteredRestaurant,setfilteresRestaurant]=useState([]);
 
   useEffect(()=>{
     console.log("effect");
@@ -20,7 +20,7 @@ const Body=()=>{
           ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9665806&lng=77.724865&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     );
 
-    const json = await data.json;
+    const json = await data.json();
     console.log(json);
     setlistofres(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
@@ -28,10 +28,10 @@ const Body=()=>{
   
   //conditional rendering
 
-  if(listofres.length===0)
-  {
-    return <Shimmer/>
-  }
+  // if(listofres.length===0)
+  // {
+  //   return <Shimmer/>
+  // }
    return (
       <div className="body">
         <div className="filter">
@@ -57,7 +57,7 @@ const Body=()=>{
         </div>
         <div className="res-container">
            {
-             filteredRestaurant.map((restaurants)=><RestaurantCard key={restaurants?.info.id} resData={restaurant}/>)
+             filteredRestaurant.map((restaurants)=><RestaurantCard key={restaurants?.info.id} resData={restaurants}/>)
            }
         </div>
       </div>
