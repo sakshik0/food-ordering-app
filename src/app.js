@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+
 //  * header
 //  * logo
 //  * nav item
@@ -21,7 +22,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 //  * -links
 //  * -addres
 
-
+const Grocery=lazy(()=>import("./components/Grocery"));
 
 const AppLayout = ()=>{
   return(
@@ -31,7 +32,7 @@ const AppLayout = ()=>{
     </div>
   )
 }
-
+//for adding at git 
 const appRouter=createBrowserRouter([
   {
     path:"/",
@@ -52,6 +53,10 @@ const appRouter=createBrowserRouter([
      {
       path:"/restaurants/:resId",
       element:<RestaurantMenu/>,
+     },
+     {
+      path:"/grocery",
+      element:<Suspense><Grocery/></Suspense>,
      }
     ],
     errorElement:<Error/>

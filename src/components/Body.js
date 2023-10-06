@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 //import reslist from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import { Link } from "react-router-dom";
 
 const Body = () => {
@@ -15,7 +16,14 @@ const Body = () => {
    // console.log("effect");
    fetchData();
   }, []);
-
+  
+  const onlinestatus=useOnlineStatus();
+  if(onlinestatus===false)
+  {
+       return (
+        <h1>Looks like you'r offline check your internet</h1>
+       )
+  }
   const fetchData = async () => {
       const data =await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTINGhttps://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 

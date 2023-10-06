@@ -12,6 +12,7 @@ const Header=()=>{
           <div className="nav-items">
               <ul>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/grocery">Grocery</Link></li>
                 <li><Link to="/about">About us</Link></li>
                 <li><Link to="/contactus">Contact Us</Link></li>
                 <li><Link>Cart</Link></li>
